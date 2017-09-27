@@ -1,0 +1,23 @@
+From: Shengjing Zhu <i@zhsj.me>
+Date: Sun, 30 Jul 2017 22:03:26 +0800
+Subject: use jwt-go-v3
+
+Forwarded: not-needed
+Signed-off-by: Shengjing Zhu <i@zhsj.me>
+---
+ autorest/adal/token.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/autorest/adal/token.go b/autorest/adal/token.go
+index 5536113..23b5ea6 100644
+--- a/autorest/adal/token.go
++++ b/autorest/adal/token.go
+@@ -15,7 +15,7 @@ import (
+ 	"strings"
+ 	"time"
+ 
+-	"github.com/dgrijalva/jwt-go"
++	jwt "github.com/dgrijalva/jwt-go-v3"
+ )
+ 
+ const (

@@ -1,0 +1,30 @@
+From: Shengjing Zhu <i@zhsj.me>
+Date: Wed, 16 Aug 2017 21:37:57 +0800
+Subject: Disable permission related tests
+
+Forwarded: not-needed
+Signed-off-by: Shengjing Zhu <i@zhsj.me>
+---
+ autorest/adal/persist_test.go | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/autorest/adal/persist_test.go b/autorest/adal/persist_test.go
+index 12c7ecb..a826bef 100644
+--- a/autorest/adal/persist_test.go
++++ b/autorest/adal/persist_test.go
+@@ -133,6 +133,7 @@ func TestSaveToken(t *testing.T) {
+ }
+ 
+ func TestSaveTokenFailsNoPermission(t *testing.T) {
++	t.Skip("In Debian, the test is run by root.")
+ 	pathWhereWeShouldntHavePermission := "/usr/thiswontwork/atall"
+ 	if runtime.GOOS == "windows" {
+ 		pathWhereWeShouldntHavePermission = path.Join(os.Getenv("windir"), "system32\\mytokendir\\mytoken")
+@@ -145,6 +146,7 @@ func TestSaveTokenFailsNoPermission(t *testing.T) {
+ }
+ 
+ func TestSaveTokenFailsCantCreate(t *testing.T) {
++	t.Skip("In Debian, the test is run by root.")
+ 	tokenPath := "/thiswontwork"
+ 	if runtime.GOOS == "windows" {
+ 		tokenPath = path.Join(os.Getenv("windir"), "system32")
